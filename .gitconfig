@@ -1,0 +1,28 @@
+[user]
+	name = KGrzeg
+	email = kupczykgrzeg@gmail.com
+	signingkey = 8873763A4D824A14
+[core]
+	editor = code --wait
+	autocrlf = input
+[commit]
+	gpgSign = false
+[alias]
+	s = status
+	ch = checkout
+	amd = commit --amend --no-edit
+	# Fetch remote repo
+  rst = !git fetch --all --prune && git checkout master && git reset origin/master --hard
+	fap = fetch --all --prune
+	pf = push --force
+	# Push to upstream
+	pu = !"f() { remote=\"${1:-origin}\"; git push -u \"$remote\" $(git rev-parse --abbrev-ref HEAD); }; f"
+	# Push to upstream Force
+	puf = !"f() { echo git pc \"$@\" -f; }; f"
+	#show last 3 commit messages
+	last = !git --no-pager log --oneline -3
+
+[rerere]
+	enabled = true
+[color]
+	ui = true
