@@ -120,6 +120,11 @@ fi
 
 eval "$(direnv hook zsh)"
 
+# Fix shortcode ctrl+shift+e in VS Code
+if [ "$(uname 2> /dev/null)" = "Linux" ]; then
+  alias code="GTK_IM_MODULE=xim code"
+fi
+
 #run tmux on startup
 if command -v tmux &> /dev/null && [ -n "$PS1" ] && [[ ! "$TERM" =~ screen ]] && [[ ! "$TERM" =~ tmux ]] && [ -z "$TMUX" ]; then
   exec tmux
