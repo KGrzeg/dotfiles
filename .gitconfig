@@ -19,8 +19,10 @@
 	pu = !"f() { remote=\"${1:-origin}\"; git push -u \"$remote\" $(git rev-parse --abbrev-ref HEAD); }; f"
 	# Push to upstream Force
 	puf = !"f() { echo git pc \"$@\" -f; }; f"
-	#show last 3 commit messages
+	# Show last 3 commit messages
 	last = !git --no-pager log --oneline -3
+	# Change branch with preserving current changes
+	snek = !"f() { branch=\"${1}\"; git stash; git checkout \"$branch\"; git stash pop; }; f"
 
 [rerere]
 	enabled = true
