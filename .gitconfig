@@ -28,3 +28,12 @@
 	enabled = true
 [color]
 	ui = true
+[filter "lfs"]
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+[lfs]
+	fetchexclude = *
+[pack]
+	threads = 6
