@@ -132,8 +132,14 @@ fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+. /usr/share/autojump/autojump.sh
 
 export DEV="/mnt/e/Grzes/dev"
 
 export VISUAL=nano
 export EDITOR="$VISUAL"
+
+# Changing "ls" to "exa"
+alias ls='exa --icons --color=always --group-directories-first'
+alias ll='exa -alF --icons --color=always --group-directories-first'
+alias la='exa -a --icons --color=always --group-directories-first'
