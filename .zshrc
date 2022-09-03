@@ -120,7 +120,7 @@ fi
 
 eval "$(direnv hook zsh)"
 
-# Fix shortcode ctrl+shift+e in VS Code
+# Fix shortcode ctrl+shift+e in VS Code on Ubuntu
 if [ "$(uname 2> /dev/null)" = "Linux" ]; then
   alias code="GTK_IM_MODULE=xim code"
 fi
@@ -143,3 +143,9 @@ export EDITOR="$VISUAL"
 alias ls='exa --icons --color=always --group-directories-first'
 alias ll='exa -alF --icons --color=always --group-directories-first'
 alias la='exa -a --icons --color=always --group-directories-first'
+
+# display npm scripts
+npms() {
+    local file="${1:-package.json}"
+    cat "$file" | jq .scripts
+}
