@@ -1,0 +1,38 @@
+#!/bin/sh
+
+# "slighly inspired" from
+# https://github.com/DoomHammer/dotfiles/blob/ecf920c6f26ca0035958b22f91fad26fff09d87f/.config/yadm/bootstrap
+
+install_nix() {
+  # This one courtesy of:
+  # https://github.com/shadowrylander/shadowrylander/blob/35bb51822c46578d0a5da5810263fa85d464043c/.config/yadm/bootstrap#L56
+  install_nix_bin() {
+    curl -L https://nixos.org/nix/install | sh
+    if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+      . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+    fi
+  }
+  command -v nix >/dev/null 2>&1 || install_nix_bin
+
+  if [ -f "$HOME/.config/nix/packages" ]; then
+    # This list created with `nix-env -qaPs|grep '^I'|awk '{print $2}' > ~/.config/nix/packages`
+    cat "$HOME/.config/nix/packages" | xargs nix-env -iA
+  fi
+}
+
+configure_zsh() {
+  # FIXME: We deserve better
+  source $HOME/.zshrc
+}
+# Hagis Note: No, I dont need any better.
+
+configure_tmux() {
+  ~/.tmux/plugins/tpm/bin/install_plugins
+}
+
+
+install_nix
+
+configure_zsh
+configure_tmux
+
