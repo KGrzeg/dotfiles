@@ -22,7 +22,7 @@ install_nix() {
 
 configure_zsh() {
   # FIXME: We deserve better
-  source $HOME/.zshrc
+  . $HOME/.zshrc
 }
 # Hagis Note: No, I dont need any better.
 
