@@ -36,4 +36,6 @@ if command -v dircolors >/dev/null 2>&1; then
     test -r ~/.dircolors && eval "$(dircolors -b ~/.dircolors)" || eval "$(dircolors -b)"
 fi
 
+export LS_COLORS="$(vivid generate one-light)"
+
 eval "$(oh-my-posh init zsh --config ~/.poshthemes/.mytheme.omp.json)"

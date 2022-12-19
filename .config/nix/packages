@@ -18,7 +18,7 @@ nixpkgs.tldr
 nixpkgs.tmate
 nixpkgs.tmux
 nixpkgs.unzip
+nixpkgs.vivid
 nixpkgs.wget
 nixpkgs.yadm
 nixpkgs.zsh
-
