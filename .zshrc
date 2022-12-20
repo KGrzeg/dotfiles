@@ -39,3 +39,27 @@ fi
 export LS_COLORS="$(vivid generate one-light)"
 
 eval "$(oh-my-posh init zsh --config ~/.poshthemes/.mytheme.omp.json)"
+
+if [ -f $HOME/.nix-profile/init.zsh ]; then
+  source $HOME/.nix-profile/init.zsh
+
+
+  zplug "oconnor663/zsh-sensible"
+  zplug "zsh-users/zsh-completions"
+  zplug "zsh-users/zsh-history-substring-search"
+  zplug "zsh-users/zsh-syntax-highlighting", defer:2
+
+  # Interactive Git
+  zplug 'wfxr/forgit'
+
+  # Install plugins if there are plugins that have not been installed
+  if ! zplug check --verbose; then
+    printf "Install zsh plugins? [y/N]: "
+    if read -q; then
+      echo; zplug install
+    fi
+  fi
+
+  # Then, source plugins and add commands to $PATH
+  zplug load # --verbose
+fi
