@@ -10,7 +10,7 @@
           "type": "path",
           "style": "plain",
           "foreground": "#7E46B6",
-          "template": "{{ .Path }} ",
+          "template": "{{ if ne .Code 0 }}<#D75F00>{{ .Path }}</>{{ else }}{{ .Path }}{{ end }} ",
           "properties": {
             "style": "mixed",
             "max_depth": 3,
@@ -52,12 +52,6 @@
           "style": "plain",
           "foreground": "#ffffff",
           "template": "🐧"
-        },
-        {
-          "type": "text",
-          "style": "plain",
-          "foreground": "#D75F00",
-          "template": "{{ if eq .Code 0 }}<#7E46B6>λ </>{{ else }}λ {{ end }}"
         }
       ]
     },

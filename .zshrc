@@ -25,6 +25,24 @@ export EDITOR="$VISUAL"
 alias ls='exa --icons --color=always --group-directories-first'
 alias ll='exa -alF --icons --color=always --group-directories-first'
 alias la='exa -a --icons --color=always --group-directories-first'
+alias -g ...='../..'
+alias -g ....='../../..'
+
+# source: https://hellricer.github.io/2019/05/21/ctrl-arrows-in-terminal.html
+### ctrl+arrows
+bindkey "\e[1;5C" forward-word
+bindkey "\e[1;5D" backward-word
+# urxvt
+bindkey "\eOc" forward-word
+bindkey "\eOd" backward-word
+
+### ctrl+delete
+bindkey "\e[3;5~" kill-word
+# urxvt
+bindkey "\e[3^" kill-word
+
+### ctrl+backspace
+bindkey '^H' backward-kill-word
 
 # display npm scripts
 npms() {
