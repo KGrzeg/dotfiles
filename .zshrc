@@ -2,6 +2,7 @@ test -r ~/.shell-aliases && . ~/.shell-aliases
 
 export PATH=$HOME/.local/bin:$PATH
 export PATH=$HOME/.poetry/bin:$PATH
+export PATH=$HOME/bin:$PATH
 export GPG_TTY=$(tty)
 
 if [ -e $HOME/.nix-profile/etc/profile.d/nix.sh ]; then . $HOME/.nix-profile/etc/profile.d/nix.sh; fi # added by Nix installer
